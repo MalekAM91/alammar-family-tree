@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body{margin:0}img{max-width:100%}</style>
+<title>مشجّر بن عمار</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@500;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap">
+<style>
+/* Layout: a single reading column; trees break out into wide horizontal-scroll panels, read top-down like a Najdi مشجّر */
+:root{
+  --bg:#f2f5f2; --surface:#ffffff; --ink:#1b2924; --muted:#5a6a62; --line:#9db1a6;
+  --accent:#1d6a50; --accent-soft:#deede6; --gold:#a97a22; --gold-soft:#f5ecd9; --warn:#9a5b14;
+  --f-display:"Reem Kufi","Noto Kufi Arabic","Segoe UI",Tahoma,sans-serif;
+  --f-body:"IBM Plex Sans Arabic","Noto Sans Arabic","Segoe UI",Tahoma,sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#0f1613; --surface:#16201b; --ink:#e4ece8; --muted:#94a69d; --line:#4a5d53;
+  --accent:#5fc49c; --accent-soft:#1b3128; --gold:#e1b660; --gold-soft:#2e2615; --warn:#e5a35a; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#0f1613; --surface:#16201b; --ink:#e4ece8; --muted:#94a69d; --line:#4a5d53;
+  --accent:#5fc49c; --accent-soft:#1b3128; --gold:#e1b660; --gold-soft:#2e2615; --warn:#e5a35a; color-scheme:dark }
+
+*{box-sizing:border-box}
+body{background:var(--bg); color:var(--ink); font-family:var(--f-body); font-size:16px; line-height:1.75; direction:rtl;
+  padding-left:max(16px, env(safe-area-inset-left,0px)); padding-right:max(16px, env(safe-area-inset-right,0px)); padding-block:32px 56px}
+.wrap{max-width:1040px; margin:0 auto; display:flex; flex-direction:column; gap:48px}
+h1,h2,h3{font-family:var(--f-display); text-wrap:balance; margin:0; line-height:1.3}
+h1{font-size:clamp(2.1rem,6vw,3.4rem); font-weight:700; color:var(--accent)}
+h2{font-size:1.6rem; font-weight:700}
+h3{font-size:1.1rem; font-weight:500}
+p{margin:0; max-width:65ch}
+.muted{color:var(--muted)}
+.eyebrow{font-size:.8rem; letter-spacing:.04em; color:var(--muted); font-weight:600}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+
+/* hero */
+header{display:flex; flex-direction:column; gap:14px}
+.nasab{display:flex; flex-wrap:wrap; gap:6px; align-items:center; font-family:var(--f-display); font-size:1.05rem}
+.nasab span{padding:2px 12px; border:1px solid var(--line); border-radius:999px; background:var(--surface)}
+.nasab span.here{background:var(--accent); color:var(--bg); border-color:var(--accent)}
+.nasab i{color:var(--muted); font-style:normal}
+.facts{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:12px; margin-top:6px}
+.fact{border-top:2px solid var(--accent); padding-top:8px; display:flex; flex-direction:column; gap:2px; min-width:0}
+.fact b{font-family:var(--f-display); font-weight:500; font-size:1.05rem}
+.fact small{color:var(--muted); font-size:.85rem; line-height:1.6}
+
+section{display:flex; flex-direction:column; gap:16px}
+.sec-head{display:flex; flex-direction:column; gap:6px}
+
+/* legend */
+.legend{display:flex; flex-wrap:wrap; gap:16px; font-size:.85rem; color:var(--muted)}
+.legend span{display:inline-flex; align-items:center; gap:6px}
+.sw{display:inline-block; width:26px; height:0; border-top:2px solid var(--line)}
+.sw.d{border-top-style:dashed; border-color:var(--warn)}
+.dot{width:10px; height:10px; border-radius:50%; display:inline-block}
+
+/* tree panel */
+.panel{background:var(--surface); border:1px solid color-mix(in srgb,var(--line) 45%,transparent); border-radius:14px; overflow-x:auto; padding:28px 12px 24px; -webkit-overflow-scrolling:touch}
+.tree{direction:ltr; width:max-content; min-width:100%; margin:0 auto}
+.tree ul{list-style:none; margin:0; padding:22px 0 0; display:flex; flex-direction:row-reverse; justify-content:center; position:relative}
+.tree > ul{padding-top:0}
+.tree li{position:relative; padding:22px 5px 0; display:flex; flex-direction:column; align-items:center}
+.tree li::before,.tree li::after{content:""; position:absolute; top:0; width:50%; height:22px; border-top:2px solid var(--line)}
+.tree li::before{left:0}
+.tree li::after{right:0; border-left:2px solid var(--line)}
+.tree li:first-child::after{border-top-color:transparent}
+.tree li:last-child::before{border-top:none}
+.tree li:only-child{padding-top:22px}
+.tree > ul > li{padding-top:0}
+.tree > ul > li::before,.tree > ul > li::after{display:none}
+.tree ul ul::before{content:""; position:absolute; top:0; left:50%; height:22px; border-left:2px solid var(--line)}
+/* uncertain links */
+.tree li.u::after{border-left-style:dashed; border-left-color:var(--warn)}
+.tree ul.u::before{border-left-style:dashed; border-left-color:var(--warn)}
+
+.n{direction:rtl; text-align:center; background:var(--bg); border:1px solid var(--line); border-radius:10px; padding:7px 12px 8px; min-width:92px; max-width:190px; display:flex; flex-direction:column; gap:1px; position:relative}
+.n b{font-family:var(--f-display); font-weight:500; font-size:1rem; line-height:1.4}
+.n small{font-size:.74rem; color:var(--muted); line-height:1.5}
+.n.root{background:var(--ink); color:var(--bg); border-color:var(--ink)}
+.n.root small{color:color-mix(in srgb,var(--bg) 75%,transparent)}
+.n.ruler{border-color:var(--gold); background:var(--gold-soft)}
+.n.ruler::before{content:""; position:absolute; top:-5px; right:-5px; width:10px; height:10px; border-radius:50%; background:var(--gold)}
+.n.am{border-color:var(--accent); background:var(--accent-soft)}
+.n.am b{color:var(--accent)}
+.n.amx{border:2px solid var(--accent); background:var(--accent); }
+.n.amx b,.n.amx small{color:var(--bg)}
+.n.person{border-style:solid; border-width:1px 1px 3px}
+.n.gap{border-style:dashed; border-color:var(--warn); background:transparent}
+.n.gap b{color:var(--warn); font-size:.9rem}
+.tag{display:inline-block; font-size:.68rem; padding:0 7px; border-radius:999px; border:1px solid currentColor; margin-top:3px; align-self:center; line-height:1.6}
+.scrollhint{font-size:.8rem; color:var(--muted)}
+
+/* loose chain */
+.chain{display:flex; flex-wrap:wrap; gap:6px; align-items:center; font-family:var(--f-display)}
+.chain span{padding:2px 10px; border-radius:8px; background:var(--bg); border:1px solid var(--line)}
+.chain span.q{border-style:dashed; border-color:var(--warn); color:var(--warn)}
+.note{background:var(--surface); border:1px solid color-mix(in srgb,var(--line) 45%,transparent); border-radius:12px; padding:16px 18px; display:flex; flex-direction:column; gap:10px}
+
+/* timeline */
+.tl{list-style:none; margin:0; padding:0; display:flex; flex-direction:column}
+.tl li{display:grid; grid-template-columns:96px 1fr; gap:16px; padding:12px 0; border-bottom:1px solid color-mix(in srgb,var(--line) 40%,transparent)}
+.tl .y{font-family:var(--f-display); font-variant-numeric:tabular-nums; color:var(--accent); font-size:1.05rem; white-space:nowrap}
+.tl .y small{display:block; font-family:var(--f-body); color:var(--muted); font-size:.75rem}
+.tl p{min-width:0}
+.tl li.fam .y{color:var(--gold)}
+.tl li.fam p b{color:var(--accent)}
+
+/* sources */
+.src{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:12px}
+.s{background:var(--surface); border:1px solid color-mix(in srgb,var(--line) 45%,transparent); border-radius:12px; padding:14px 16px; display:flex; flex-direction:column; gap:6px; min-width:0}
+.s h3{font-size:1rem}
+.lvl{font-size:.75rem; font-weight:600; padding:1px 9px; border-radius:999px; align-self:flex-start}
+.lvl.h{background:var(--accent-soft); color:var(--accent)}
+.lvl.m{background:var(--gold-soft); color:var(--gold)}
+.lvl.l{background:transparent; color:var(--warn); border:1px solid var(--warn)}
+.s p{font-size:.9rem; color:var(--muted)}
+.s a{font-size:.85rem; word-break:break-word}
+
+.steps{margin:0; padding-inline-start:22px; display:flex; flex-direction:column; gap:8px; max-width:70ch}
+footer{font-size:.8rem; color:var(--muted); border-top:1px solid color-mix(in srgb,var(--line) 40%,transparent); padding-top:16px}
+@media (max-width:520px){ .tl li{grid-template-columns:72px 1fr; gap:10px} body{font-size:15px} }
+@media (prefers-reduced-motion:no-preference){ .n{transition:transform .15s} .n:hover{transform:translateY(-2px)} }
+</style>
+</head>
+<body>
+
+
+<div class="wrap">
+
+<header>
+  <span class="eyebrow">مشجّر نسب · مبني على المصادر المنشورة</span>
+  <h1>مشجّر بن عمار</h1>
+  <div class="nasab" aria-label="سلسلة الانتماء">
+    <span>بنو خالد</span><i>←</i><span>آل حُميد</span><i>←</i><span>آل غرير</span><i>←</i><span class="here">بن عمار</span>
+  </div>
+  <p>بن عمار أسرة نجدية من حاضرة الوشم، أهل القرائن وغسلة. ينصّ حمد الجاسر في جمهرة أنساب الأسر المتحضرة على أنهم من آل غرير، الفخذ الرئيس في آل حُميد (بضم الحاء) من بني خالد، وهو الفخذ الذي حكم الأحساء بين 1081 و1211هـ. هذه الصفحة تجمع ما وثّقته الكتب والأبحاث المنشورة، وتفصل بين الموثّق وما لم يُعثر على سنده بعد.</p>
+  <div class="facts">
+    <div class="fact"><b>الموطن</b><small>القرائن وما جاورها، وغسلة بالوشم (محافظة شقراء)</small></div>
+    <div class="fact"><b>القدوم إلى الوشم</b><small>منتصف القرن 12هـ من النقرة بالأحساء، مرورًا بالقصب، مع أبناء عمهم آل راشد</small></div>
+    <div class="fact"><b>الجد الجامع الموثّق</b><small>عمار ← عبد الله ← علي، وتتفرع منه ثلاثة فروع</small></div>
+    <div class="fact"><b>أقرب الأسر نسبًا</b><small>آل راشد في القرائن (بنو عم)، ثم آل فاضل والسبيعي وبقية آل غرير</small></div>
+  </div>
+</header>
+
+<section>
+  <div class="sec-head">
+    <span class="eyebrow">صورة المشجّر</span>
+    <h2>المشجّر كاملًا في صورة واحدة</h2>
+    <p class="muted">على الجوال: اضغط مطولًا على الصورة لنسخها أو حفظها. على الكمبيوتر: زر الفأرة الأيمن ثم «نسخ الصورة».</p>
+  </div>
+  <a href="alammar-tree.png"><img src="alammar-tree.png" alt="مشجّر بن عمار من آل غرير من آل حميد من بني خالد" style="width:100%;height:auto;border-radius:14px;border:1px solid color-mix(in srgb,var(--line) 45%,transparent);background:#f4f6f3"></a>
+</section>
+
+<!-- TREE A -->
+<section>
+  <div class="sec-head">
+    <span class="eyebrow">الشجرة الأولى</span>
+    <h2>ذرية عمار كما وردت في سلاسل النسب</h2>
+    <p class="muted">ثلاث سلاسل منشورة تلتقي كلها عند علي بن عبد الله بن عمار، فرسمتها فروعًا لأبنائه الثلاثة. الأسماء الحديثة مذكورة كما وردت في بحث ابن هزاع، وقد تكون أحوالهم تغيّرت بعد نشره.</p>
+  </div>
+  <div class="legend">
+    <span><i class="sw"></i>صلة موثّقة بسلسلة نسب</span>
+    <span><i class="sw d"></i>صلة يذكرها النسّابون دون تفصيل الآباء</span>
+    <span><i class="dot" style="background:var(--accent)"></i>بن عمار</span>
+  </div>
+  <div class="panel" data-center>
+    <div class="tree">
+      <ul><li><div class="n root"><b>آل غرير</b><small>من آل حُميد من بني خالد</small></div>
+        <ul class="u"><li class="u"><div class="n gap"><b>آباء بين غرير وعمار</b><small>غير مذكورين في المصادر المتاحة</small></div>
+          <ul class="u"><li class="u"><div class="n amx"><b>عمار</b><small>الجد الذي تنتسب إليه الأسرة</small></div>
+            <ul><li><div class="n am"><b>عبد الله</b><small>بن عمار</small></div>
+              <ul><li><div class="n am"><b>علي</b><small>بن عبد الله بن عمار · الجد الجامع للفروع</small></div>
+                <ul>
+                  <li><div class="n am"><b>حمد</b><small>فرع القرائن</small></div>
+                    <ul><li><div class="n"><b>إبراهيم</b></div>
+                      <ul><li><div class="n"><b>سليمان</b></div>
+                        <ul><li><div class="n"><b>إبراهيم</b></div>
+                          <ul><li><div class="n person"><b>الشيخ عبد الرحمن</b><small>بن إبراهيم · من أعيان القرائن</small></div></li></ul>
+                        </li></ul>
+                      </li></ul>
+                    </li></ul>
+                  </li>
+                  <li><div class="n am"><b>عبد الله</b><small>فرع غسلة · الإمارة</small></div>
+                    <ul><li><div class="n"><b>محمد</b></div>
+                      <ul>
+                        <li><div class="n"><b>حمد</b></div>
+                          <ul><li><div class="n person"><b>عبد الرحمن</b><small>بن حمد · أمير غسلة وقت البحث</small></div></li></ul>
+                        </li>
+                        <li class="u"><div class="n"><b>إبراهيم</b><small>موضع مرجّح غير مؤكد</small></div>
+                          <ul><li><div class="n"><b>عبد الله</b></div>
+                            <ul><li><div class="n person"><b>محمد</b><small>بن عبد الله · رئيس النواب في شقراء</small></div></li></ul>
+                          </li></ul>
+                        </li>
+                      </ul>
+                    </li></ul>
+                  </li>
+                  <li><div class="n am"><b>عبد الرحمن</b><small>فرع غسلة · القضاء</small></div>
+                    <ul><li><div class="n"><b>عبد العزيز</b></div>
+                      <ul><li><div class="n person"><b>الشيخ عبد الله</b><small>قاضي الأرطاوية ومنطقة السر من 1366هـ · ت 1397هـ</small></div></li></ul>
+                    </li></ul>
+                  </li>
+                </ul>
+              </li></ul>
+            </li></ul>
+          </li></ul>
+        </li></ul>
+      </li></ul>
+    </div>
+  </div>
+  <span class="scrollhint">على الجوال: اسحب الشجرة أفقيًا لرؤية بقية الفروع.</span>
+
+  <div class="note">
+    <h3>موضع الجد عبد الله في السلسلة غير المتصلة</h3>
+    <p class="muted">ورد نسب رئيس النواب في شقراء هكذا: محمد بن عبد الله بن إبراهيم بن محمد بن عبد الله العمار. الأرجح أن «محمد بن عبد الله» في هذه السلسلة هو نفسه محمد بن عبد الله بن علي في فرع غسلة، لسببين: الاسمان متطابقان في موضعهما، وبهذا الربط يقع محمد في الجيل السابع من عمار، وهو جيل الشيخ عبد الرحمن بن إبراهيم من فرع القرائن الذي عاصره في البحث نفسه. رسمت الصلة متقطعة في الشجرة أعلاه، ويبقى تأكيدها بشهادة كبار الأسرة أو بوثيقة.</p>
+    <div class="chain"><span>محمد</span><i>←</i><span>عبد الله</span><i>←</i><span>إبراهيم</span><i>←</i><span class="q">محمد</span><i>←</i><span class="q">عبد الله</span><i>←</i><span>علي</span><i>←</i><span>عبد الله</span><i>←</i><span>عمار</span></div>
+    <p class="muted" style="font-size:.85rem">الخانتان المتقطعتان هما موضع الربط المرجّح.</p>
+  </div>
+</section>
+
+<!-- TREE B -->
+<section>
+  <div class="sec-head">
+    <span class="eyebrow">الشجرة الثانية</span>
+    <h2>موقع بن عمار من آل حُميد وحكّام الأحساء</h2>
+    <p class="muted">أعلى السلسلة من كتاب المنتخب للمغيري، وأسماء الحكّام وتواريخهم منه ومن تراجم الأمراء. أبناء غرير الستة من ابن بشر وابن عيسى كما نقلهم الجاسر وابن عقيل. يذكر المغيري والجاسر آل عمار في بيوت غرير، دون أن يحدد أحدهما ابنًا بعينه من أبنائه يتصلون به، فرسمت الصلة متقطعة.</p>
+  </div>
+  <div class="legend">
+    <span><i class="dot" style="background:var(--gold)"></i>حاكم في إمارة بني خالد</span>
+    <span><i class="sw d"></i>انتساب إلى غرير دون تفصيل</span>
+  </div>
+  <div class="panel" data-center>
+    <div class="tree">
+      <ul><li><div class="n root"><b>بنو خالد</b><small>بطونهم: آل حميد، الجبور، الدعوم، آل جناح وغيرهم</small></div>
+        <ul><li><div class="n"><b>آل حُميد</b><small>جدهم ربيعة · بيت الإمارة</small></div>
+          <ul><li><div class="n"><b>مسعود</b><small>بن ربيعة (وفي رواية: سعدون)</small></div>
+            <ul><li><div class="n"><b>عثمان</b><small>بن مسعود</small></div>
+              <ul>
+                <li><div class="n am"><b>غرير بن عثمان</b><small>جدّ آل غرير</small></div>
+                  <ul>
+                    <li><div class="n ruler"><b>برّاك</b><small>مؤسس الإمارة · 1081–1093هـ</small></div>
+                      <ul><li><div class="n ruler"><b>ثنيّان</b><small>تولى بعد عمه محمد</small></div></li></ul>
+                    </li>
+                    <li><div class="n ruler"><b>محمد</b><small>1093–1103هـ · وفي تاريخ الأحساء: ابن برّاك</small></div>
+                      <ul>
+                        <li><div class="n ruler"><b>سعدون</b><small>1103–1135هـ</small></div>
+                          <ul><li><div class="n"><b>دجين</b></div>
+                            <ul><li><div class="n ruler"><b>عريعر (غرير)</b><small>بن دجين</small></div>
+                              <ul><li><div class="n"><b>آل عريعر</b><small>دجين، سعدون، ماجد، محمد، زيد</small></div></li></ul>
+                            </li></ul>
+                          </li></ul>
+                        </li>
+                        <li><div class="n ruler"><b>علي</b><small>بعد سعدون</small></div></li>
+                        <li><div class="n ruler"><b>سليمان</b><small>1142–1166هـ · ت بالخرج</small></div></li>
+                      </ul>
+                    </li>
+                    <li><div class="n"><b>عبيد الله</b><small>وعند المغيري: عبد الله · منهم نجم بن عبيد الله</small></div></li>
+                    <li><div class="n"><b>عثمان</b><small>بن غرير</small></div></li>
+                    <li><div class="n"><b>هزاع</b><small>بن غرير</small></div>
+                      <ul><li><div class="n"><b>آل هزاع</b><small>الرياض والقصب وثرمداء والدلم</small></div></li></ul>
+                    </li>
+                    <li><div class="n"><b>شباط</b><small>بن غرير</small></div>
+                      <ul><li><div class="n"><b>آل شباط</b><small>الأحساء</small></div>
+                        <ul><li><div class="n"><b>آل جهيران</b><small>عنك</small></div></li></ul>
+                      </li></ul>
+                    </li>
+                    <li class="u"><div class="n gap"><b>بيوت آل غرير في نجد</b><small>بحسب المغيري وابن هزاع</small></div>
+                      <ul>
+                        <li><div class="n amx"><b>بن عمار</b><small>القرائن وغسلة</small></div></li>
+                        <li><div class="n am"><b>آل راشد</b><small>القرائن · بنو عم بن عمار</small></div></li>
+                        <li><div class="n"><b>آل فاضل</b><small>القرائن، ثرمداء، شقراء</small></div>
+                          <ul><li><div class="n"><b>السبيعي (السباعا)</b><small>شقراء والقرائن وجلاجل</small></div></li></ul>
+                        </li>
+                        <li><div class="n"><b>آل غريري</b><small>شقراء وحائل والجوف</small></div></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li><div class="n"><b>حسين بن عثمان</b><small>شارك برّاك في إخراج العثمانيين</small></div>
+                  <ul><li><div class="n"><b>محمد بن حسين</b><small>قُتل في خلاف داخلي · والمغيري يجعل آل هزاع منهم</small></div></li></ul>
+                </li>
+              </ul>
+            </li></ul>
+          </li></ul>
+        </li></ul>
+      </li></ul>
+    </div>
+  </div>
+  <span class="scrollhint">اسحب أفقيًا لرؤية الشجرة كاملة.</span>
+</section>
+
+<!-- TIMELINE -->
+<section>
+  <div class="sec-head">
+    <span class="eyebrow">التسلسل الزمني</span>
+    <h2>من إمارة الأحساء إلى الوشم</h2>
+  </div>
+  <ol class="tl">
+    <li><span class="y">1081هـ<small>1669م</small></span><p>برّاك بن غرير يُخرج الحامية العثمانية من الأحساء والقطيف بمشاركة حسين بن عثمان، وتقوم إمارة آل حُميد.</p></li>
+    <li><span class="y">1093هـ</span><p>وفاة برّاك وتولي أخيه محمد بن غرير، الذي ثبّت أركان الإمارة ووزّع الأملاك على فروع بني خالد.</p></li>
+    <li><span class="y">1103–1135هـ</span><p>عهد سعدون بن محمد، ذروة اتساع نفوذ بني خالد من الأحساء إلى نجد وأطراف الشام.</p></li>
+    <li><span class="y">1135–1166هـ</span><p>نزاع على الرئاسة بين أبناء محمد بن غرير وحفيده دجين. يتولى علي ثم سليمان، ثم يُخرَج سليمان فيموت في الخرج سنة 1166هـ، ويستقر الأمر لعريعر بن دجين.</p></li>
+    <li class="fam"><span class="y">منتصف ق12هـ</span><p><b>بن عمار وآل راشد</b> يخرجون من النقرة بالأحساء إلى القصب ثم يستقرون في القرائن. يتزامن ذلك مع اضطراب الرئاسة في آل حُميد، وهذا ربط زمني مني لا تنص عليه المصادر.</p></li>
+    <li><span class="y">1208–1211هـ</span><p>آخر حكّام الإمارة الأولى برّاك بن عبد المحسن، وتنتهي بدخول الأحساء في الدولة السعودية الأولى.</p></li>
+    <li><span class="y">1245هـ</span><p>الإمام تركي بن عبد الله ينتزع الأحساء من آخر ولاة آل عريعر.</p></li>
+    <li class="fam"><span class="y">1366هـ</span><p>الملك عبد العزيز يعيّن <b>الشيخ عبد الله بن عبد العزيز بن عبد الرحمن بن علي بن عبد الله بن عمار</b> قاضيًا في هجرة الأرطاوية، ثم قاضيًا لمدن وقرى منطقة السر.</p></li>
+    <li class="fam"><span class="y">1397هـ</span><p>وفاة الشيخ عبد الله بن عبد العزيز، قاضي منطقة السر، رحمه الله.</p></li>
+    <li class="fam"><span class="y">1442هـ</span><p>اجتماع <b>أسرة بن عمار</b> في نفود الشرقي (عرق البلدان)، وللأسرة اجتماع سنوي منظّم في القرائن.</p></li>
+  </ol>
+</section>
+
+<!-- SAME NAME -->
+<section>
+  <div class="sec-head">
+    <span class="eyebrow">تنبيه قبل البحث في أي مصدر</span>
+    <h2>أسر أخرى تحمل اسم العمار</h2>
+    <p class="muted">الاسم مشترك بين أسر لا صلة نسب بينها، وخلطها هو أكثر ما يُفسد المشجّرات. هذه هي الأسر التي ظهرت في المصادر أثناء البحث:</p>
+  </div>
+  <div class="src">
+    <div class="s"><h3>العمار (آل محمد)</h3><p>من العيينة ثم ثادق وحريملاء والرياض، وتنسب نفسها إلى العناقر من بني تميم. جدها عمار عاش في القرن 11هـ. نشرت عنها صحيفة الجزيرة سنة 1430هـ، ونفت أسرة العنقري انتسابها إليها.</p></div>
+    <div class="s"><h3>آل عمار الدواسر</h3><p>في سيح الأفلاج، من آل حسن بن صهيب من الدواسر، وفروعهم آل حامد وآل سعد وآل مانع وآل مبارك.</p></div>
+    <div class="s"><h3>العمار في القوارة</h3><p>من آل ذويب من المسعود من الأسلم من شمر.</p></div>
+    <div class="s"><h3>عمار آخرون من بني خالد</h3><p>العمار في الخرج والدمام من الشبلة، والعمار (الفقعان) في الجبيل من الرازن. يجمعهم ببن عمار اسم القبيلة لا الفخذ.</p></div>
+  </div>
+</section>
+
+<!-- SOURCES -->
+<section>
+  <div class="sec-head">
+    <span class="eyebrow">المصادر ودرجة الوثوق</span>
+    <h2>من أين جاءت كل معلومة</h2>
+  </div>
+  <div class="src">
+    <div class="s"><span class="lvl h">وثوق عالٍ</span><h3>جمهرة أنساب الأسر المتحضرة في نجد · حمد الجاسر</h3><p>مادة «آل عمار في الوشم» تنصّ على أنهم من آل غرير من آل حميد من بني خالد، وتحيل إلى مجلة العرب وتاريخ شقراء. وفيها أن السباعا في الوشم من آل غرير، وأبناء غرير الستة نقلًا عن ابن بشر. وتجعل آل راشد في القرائن من المشارفة من تميم، خلافًا لابن هزاع، فقد تكون أسرتين بالاسم نفسه.</p><a href="https://archive.org/details/olomnasb_ymail_20170803_2151">نسخة أرشيف الإنترنت</a></div>
+    <div class="s"><span class="lvl h">وثوق عالٍ</span><h3>المنتخب في ذكر نسب قبائل العرب · المغيري</h3><p>كتاب مطبوع. منه أعلى السلسلة (ربيعة ← مسعود ← عثمان ← غرير)، وأسماء الحكّام، ونصّه على أن آل عمار أهل القرائن من بيوت غرير.</p><a href="https://shamela.ws/book/494/46">المكتبة الشاملة، ص46</a></div>
+    <div class="s"><span class="lvl m">وثوق متوسط</span><h3>بحث محمد بن ناصر الهزاع الخالدي</h3><p>منه سلاسل نسب بن عمار الثلاث، وقدومهم من النقرة، وصلتهم بآل راشد. نُقل عبر منتديات القبيلة، ونبّه بعض المعلّقين إلى أخطاء فيه.</p><a href="https://aloryir.hooxs.com/t28-topic">منتديات آل عريعر</a><a href="http://benikhald.blogspot.com/2012/01/blog-post_02.html">مدونة الخوالد</a></div>
+    <div class="s"><span class="lvl m">وثوق عالٍ في الحكّام</span><h3>أنساب الأسر الحاكمة في الأحساء: بنو حميد · ابن عقيل الظاهري</h3><p>يفصّل حكّام آل حميد، ويحيل إلى مجلة العرب في ذكر «آل فاضل وآل عمار في الوشم»، لكنه لا يسرد الآباء بين غرير وعمار. ويرجّح أن بني خالد من طيء وجذام.</p><a href="https://archive.org/details/2_20230514_20230514">نسخة أرشيف الإنترنت</a></div>
+    <div class="s"><span class="lvl m">وثوق متوسط</span><h3>تراجم أمراء بني خالد</h3><p>سنوات حكم برّاك ومحمد وسعدون، والرواية البديلة «سعدون» بدل «مسعود» في نسب عثمان.</p><a href="https://areq.net/m/إمارة_آل_حميد_الأولى.html">موسوعة المعرفة</a><a href="https://3rabica.org/%D8%B3%D8%B9%D8%AF%D9%88%D9%86_%D8%A8%D9%86_%D9%85%D8%AD%D9%85%D8%AF_%D8%A2%D9%84_%D8%AD%D9%85%D9%8A%D8%AF">أرابيكا</a></div>
+    <div class="s"><span class="lvl l">للاستئناس</span><h3>أخبار الأسرة ووسمها</h3><p>اجتماعات الأسرة منشورة في صحيفة شقراء ويوتيوب. ويذكر منتدى أن وسم بن عمار من حاضرة القرائن «مطرقين وحلقة على الرقبة من اليمين»، وهو مشترك مع أسر أخرى من غير آل حُميد، فلا يُعتمد عليه في النسب.</p><a href="https://www.shqra.org/new/s/5171">صحيفة شقراء</a></div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head">
+    <span class="eyebrow">حالة المراجعة · ربيع الآخر 1448هـ</span>
+    <h2>ما أُنجز وما بقي على الأسرة</h2>
+  </div>
+  <ol class="steps">
+    <li><b>جمهرة الجاسر:</b> رُوجعت. تثبت أن آل عمار في الوشم من آل غرير من آل حميد، ولا تذكر سلسلة آبائهم.</li>
+    <li><b>كتاب ابن عقيل:</b> رُوجع. لا يسدّ الفجوة بين غرير وعمار، لكنه وثّق أبناء غرير الستة، فأضفتهم للشجرة الثانية.</li>
+    <li><b>وثائق الأسرة:</b> لا توجد مبايعات أو وصايا أو أوقاف منشورة باسم الأسرة على الويب. هذه عند الأسرة نفسها، وأقرب من يحفظها أهل القرائن وغسلة.</li>
+    <li><b>مشجّر محفوظ:</b> لم أجد مشجّرًا منشورًا. الأسرة تعقد اجتماعًا سنويًا في القرائن، ومنسّقوه أقرب طريق إليه.</li>
+    <li><b>الجد عبد الله:</b> وُضع في موضعه المرجّح بخط متقطع. الأبناء والأحفاد الأحياء لم يُضافوا، لأن إضافتهم تحتاج أسماءهم وإذنهم من الأسرة مباشرة.</li>
+  </ol>
+</section>
+
+<footer>
+  <p>ملاحظة: تختلف المصادر في أصل بني خالد. القبيلة تنتسب إلى بني مخزوم من قريش، بينما يورد المغيري بني خالد ضمن بطون طيء. هذه الصفحة تعرض النسب كما ورد دون ترجيح. أُعدّت في ربيع الآخر 1448هـ / أكتوبر 2026م.</p>
+  <p style="margin-top:10px;font-family:var(--f-display);font-size:.95rem;color:var(--ink)">الحقوق محفوظة لعبدالملك العمار</p>
+</footer>
+
+</div>
+<script>
+document.querySelectorAll('.panel[data-center]').forEach(function(p){
+  function c(){ p.scrollLeft = (p.scrollWidth - p.clientWidth)/2; }
+  c(); window.addEventListener('load', c);
+});
+</script>
+
+</body>
+</html>
